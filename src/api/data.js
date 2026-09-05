@@ -6,7 +6,7 @@ const newHeaders = {
 ...req.headers,
 "X-Forwarded-For": clientIp,
 "X-From-Cdn": "cf-stape",
-"Host": "sgtm.example.com",
+"Host": "kuitcqem.attriato.com",
 "CF-Connecting-Ip": clientIp
 };
 const response = await fetch(TARGET_URL, {
