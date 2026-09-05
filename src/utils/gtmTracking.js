@@ -59,7 +59,8 @@ const getConsentMode = () => {
  * @param {object} additionalData - Additional properties to include
  */
 export const pushToDataLayer = (eventName, additionalData = {}) => {
-  if (!window.dataLayer) return;
+  if (typeof window === "undefined") return;
+  window.dataLayer = window.dataLayer || [];
 
   window.dataLayer.push({
     event: eventName,

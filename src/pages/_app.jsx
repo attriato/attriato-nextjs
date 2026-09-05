@@ -38,10 +38,11 @@ function GTMTracker() {
   const initialPageViewSent = useRef(false);
 
   useEffect(() => {
-    const sendPageView = (pathname) => {
-      const meta = getMetaForPath(pathname);
+    const sendPageView = (url) => {
+      const cleanPath = url ? url.split("?")[0] : router.pathname;
+      const meta = getMetaForPath(cleanPath);
       const baseUrl = "https://www.attriato.com";
-      const pageLocation = `${baseUrl}${pathname === "/" ? "" : pathname}`;
+      const pageLocation = `${baseUrl}${cleanPath === "/" ? "" : cleanPath}`;
 
       setTimeout(async () => {
         try {
@@ -56,13 +57,13 @@ function GTMTracker() {
     // routeChangeComplete only fires on subsequent client-side navigations,
     // so the very first pageview needs to be sent explicitly on mount.
     if (!initialPageViewSent.current) {
-      sendPageView(router.pathname);
+      sendPageView(router.asPath);
       initialPageViewSent.current = true;
     }
 
     router.events.on("routeChangeComplete", sendPageView);
     return () => router.events.off("routeChangeComplete", sendPageView);
-  }, [router.events, router.pathname]);
+  }, [router.events, router.asPath, router.pathname]);
 
   return null;
 }
