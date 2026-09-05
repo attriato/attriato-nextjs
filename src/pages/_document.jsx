@@ -67,14 +67,14 @@ export default function Document() {
 window.dataLayer.push({ "gtm.start": new Date().getTime(), event: "gtm.js" });`,
           }}
         />
-        <script async src="https://kuitcqem.attriato.com/gtm.js?id=GTM-K7Z8RS6G" />
+        <script async src="https://www.attriato.com/data/gtm.js?id=GTM-K7Z8RS6G" />
         {/* End Google Tag Manager */}
       </Head>
       <body>
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
-            src="https://kuitcqem.attriato.com/ns.html?id=GTM-K7Z8RS6G"
+            src="https://www.attriato.com/data/ns.html?id=GTM-K7Z8RS6G"
             height="0"
             width="0"
             style={{ display: "none", visibility: "hidden" }}
