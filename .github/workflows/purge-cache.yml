@@ -9,12 +9,13 @@ jobs:
   purge-cloudflare:
     runs-on: ubuntu-latest
     steps:
-      # 1. Wait for Vercel's official GitHub integration to complete the deployment
+      # 1. Wait for Vercel's deployment to complete
       - name: Wait for Vercel Deployment
-        uses: vercel/wait-for-deployment-action@v2
+        uses: UnlyEd/github-action-await-vercel@v1
         id: vercel_deploy
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          deployment-url: www.attriato.com
+          timeout: 300
 
       # 2. Tell Cloudflare to clear its edge cache once Vercel is live
       - name: Purge Cloudflare Cache
