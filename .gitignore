@@ -8,7 +8,7 @@ out/
 # production
 build/
 dist/
-
+src/components/pages/api/
 # env files
 .env
 .env*.local
