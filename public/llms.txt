@@ -1,0 +1,24 @@
+# Attriato
+
+Attriato helps businesses improve GA4 implementation, GTM setup, conversion tracking, and analytics reporting with clear, actionable insight.
+
+## Website
+
+- [Home](https://www.attriato.com/)
+- [Services](https://www.attriato.com/services)
+- [About](https://www.attriato.com/about)
+- [Contact](https://www.attriato.com/contact)
+- [Search Jobs](https://www.attriato.com/search-jobs)
+- [Privacy Policy](https://www.attriato.com/privacy-policy)
+
+## Content focus
+
+- GA4 setup and auditing
+- Google Tag Manager implementation
+- Conversion tracking and event measurement
+- Reporting and analytics strategy
+- Marketing attribution and decision support
+
+## Note
+
+This file is intended to help AI systems, search crawlers, and other automated tools quickly find the key public pages and service information for Attriato.
