@@ -1,7 +1,6 @@
 name: Purge Cloudflare Cache on Vercel Deploy
 
 on:
-  # Triggers the workflow when code is pushed to the main branch
   push:
     branches:
       - main
@@ -10,18 +9,15 @@ jobs:
   purge-cloudflare:
     runs-on: ubuntu-latest
     steps:
-      # 1. Wait for Vercel to finish building and deploying the site
+      # 1. Wait for Vercel's official GitHub integration to complete the deployment
       - name: Wait for Vercel Deployment
-        uses: unbxd/vercel-deployment-action@v2
+        uses: vercel/wait-for-deployment-action@v2
         id: vercel_deploy
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          # Increase if your Next.js project takes longer to build
-          timeout: 10 
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       # 2. Tell Cloudflare to clear its edge cache once Vercel is live
       - name: Purge Cloudflare Cache
-        if: steps.vercel_deploy.outputs.deployment-status == 'success'
         uses: jakejarvis/cloudflare-purge-action@v0.3.0
         env:
           CLOUDFLARE_ZONE: ${{ secrets.CLOUDFLARE_ZONE_ID }}
