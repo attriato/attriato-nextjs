@@ -13,6 +13,8 @@ jobs:
       - name: Wait for Vercel Deployment
         uses: UnlyEd/github-action-await-vercel@v1
         id: vercel_deploy
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         with:
           deployment-url: www.attriato.com
           timeout: 300
