@@ -115,8 +115,8 @@ export default function Home() {
                 className="process-visual"
                 src="/images/1461603921.jpg"
                 alt="Analytics team collaborating"
-                width={640}
-                height={360}
+                width={360}
+                height={430}
                 loading="lazy"
                 decoding="async"
               />
@@ -153,7 +153,7 @@ export default function Home() {
               <div className="stat-item"><span>Ongoing Improvement</span></div>
             </div>
             <div className="btn-row" style={{ marginTop: 28 }}>
-              <Link href="/about" className="btn btn-ghost">Learn More</Link>
+              <Link href="/about" className="btn btn-ghost">More About Attriato</Link>
             </div>
           </div>
           <picture>
@@ -205,16 +205,16 @@ export default function Home() {
               <img
                 src="/images/sacrd_logo.png"
                 alt="Sacred logo"
-                width={120}
-                height={60}
+                width={189}
+                height={46}
                 loading="lazy"
                 decoding="async"
               />
               <img
                 src="/images/Downtown-Partnership-Logo.png"
                 alt="Downtown Colorado Springs"
-                width={120}
-                height={60}
+                width={88}
+                height={46}
                 loading="lazy"
                 decoding="async"
               />

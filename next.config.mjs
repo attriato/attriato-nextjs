@@ -27,6 +27,17 @@ const nextConfig = {
           },
         ],
       },
+      {
+        // Hashed build assets never change content under the same URL,
+        // so browsers (not just the CDN) can cache them forever.
+        source: "/_next/static/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
     ];
   },
 };
