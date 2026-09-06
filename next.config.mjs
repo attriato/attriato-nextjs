@@ -3,6 +3,10 @@ const nextConfig = {
   reactStrictMode: true,
   productionBrowserSourceMaps: true,
   outputFileTracingRoot: import.meta.dirname,
+  experimental: {
+    // Inlines critical CSS and loads the rest asynchronously to avoid render-blocking stylesheets.
+    optimizeCss: true,
+  },
   async rewrites() {
     return [
       { source: "/data/:path*", destination: "/api/data/:path*" },
