@@ -34,6 +34,26 @@ function InitializeTracking() {
   return null;
 }
 
+function ChunkErrorReload() {
+  const router = useRouter();
+
+  useEffect(() => {
+    // After a new deploy, old tabs reference stale chunk hashes that 404/503
+    // on the server. Force a full reload so the browser fetches the current build.
+    const handleChunkError = (err) => {
+      const message = String(err?.message || err || "");
+      if (/loading chunk|failed to fetch|chunkloaderror/i.test(message)) {
+        window.location.reload();
+      }
+    };
+
+    router.events.on("routeChangeError", handleChunkError);
+    return () => router.events.off("routeChangeError", handleChunkError);
+  }, [router.events]);
+
+  return null;
+}
+
 function GTMTracker() {
   const router = useRouter();
   const initialPageViewSent = useRef(false);
@@ -80,6 +100,7 @@ export default function App({ Component, pageProps }) {
         }}
       />
       <InitializeTracking />
+      <ChunkErrorReload />
       <GTMTracker />
       <Header />
       <main>
