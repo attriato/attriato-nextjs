@@ -1,0 +1,5 @@
+# Specify modern browser targets to avoid transpiling Baseline JavaScript features and polyfills
+chrome >= 109
+edge >= 109
+firefox >= 109
+safari >= 16.4
