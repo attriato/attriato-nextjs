@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  productionBrowserSourceMaps: true,
   outputFileTracingRoot: import.meta.dirname,
   async rewrites() {
     return [
