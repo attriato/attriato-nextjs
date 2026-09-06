@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useRouter } from "next/router";
+import Script from "next/script";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { getMetaForPath } from "../utils/pageMeta";
@@ -71,6 +72,13 @@ function GTMTracker() {
 export default function App({ Component, pageProps }) {
   return (
     <>
+      <Script
+        id="gtm-bootstrap"
+        strategy="lazyOnload"
+        dangerouslySetInnerHTML={{
+          __html: `!function(){"use strict";var e=window,t=document,r="script",n="dataLayer",o="https://kuitcqem.attriato.com",a="5kuitcqem",i="cgwjea=BAFMJCAkWCBaP0kxJ18yTRtYQ01FTxEFUBIGFFoIAR8fDBAXG0cWBABDAgwEVFoPDBEQ",c=(e[n]=e[n]||[],e[n].push({"gtm.start":(new Date).getTime(),event:"gtm.js"}),t.createElement(r));c.async=!0,c.src=o+"/"+a+".js?"+i;var s=t.getElementsByTagName(r)[0];s&&s.parentNode&&s.parentNode.insertBefore(c,s)}();`,
+        }}
+      />
       <InitializeTracking />
       <GTMTracker />
       <Header />
